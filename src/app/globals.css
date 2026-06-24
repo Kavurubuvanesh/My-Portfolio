@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  scroll-behavior: smooth;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-black text-white antialiased overflow-x-hidden;
+  }
+
+  /* Custom scrollbar for a premium feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555555;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-infinite-scroll {
+  animation: scroll 40s linear infinite;
+  /* Hover to pause the marquee */
+  will-change: transform;
+}
+
+.animate-infinite-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* =========================================
+   PREMIUM DARK SCROLLBAR PHYSICS
+   ========================================= */
+
+/* WebKit Browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 12px;  /* Width of vertical scrollbar */
+  height: 12px; /* Height of horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #000000; /* Pure black to blend seamlessly into the site */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a; /* Tailwind zinc-800 */
+  border-radius: 8px;
+  /* The Secret Sauce: A border that matches the track color creates a "floating" pill effect */
+  border: 3px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46; /* Tailwind zinc-700 on hover */
+}
+
+::-webkit-scrollbar-corner {
+  background: #000000;
+}
+
+/* Firefox Support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #27272a #000000;
 }
