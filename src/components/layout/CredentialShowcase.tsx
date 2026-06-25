@@ -15,7 +15,7 @@ const credentials = [
     skills: ["Cloud ML", "Feature Engineering", "MLOps"],
     images: [
       { url: "/certs/Machine Learning__Terminology and Process.jpeg", isBadge: false },
-      { url: "/certs/Fundamentals of AI & ML.jpeg", isBadge: false },
+      { url: "/certs/aws-verified.jpeg", isBadge: false },
       { url: "/certs/Planning a Machine Learning Project.jpeg", isBadge: false },
       { url: "/certs/Machine Learning Essentials for Business and Technical Decision Makers.jpeg", isBadge: false },
       { url: "/certs/Introduction to Machine__Learning.jpeg", isBadge: false }// Example of multiple certs in one view
