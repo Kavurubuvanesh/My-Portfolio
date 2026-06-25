@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Keep whatever else is already in here, just add:
   output: 'standalone',
+  images: {
+    unoptimized: true, // <-- THIS BYPASSES THE AZURE CRASH
+  },
 };
 
 export default nextConfig;
