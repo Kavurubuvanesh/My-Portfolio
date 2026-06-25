@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "standalone", // <-- THIS IS THE ARCHITECTURE FIX
+  // ... any other config settings you have
 };
 
 export default nextConfig;
